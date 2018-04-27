@@ -56,6 +56,7 @@ function maven_usage
   yetus_add_option "--mvn-custom-repos-dir=dir" "Location of repos, default is '${MAVEN_CUSTOM_REPOS_DIR}'"
   yetus_add_option "--mvn-deps-order=<bool>" "Disable maven's auto-dependency module ordering (Default: '${MAVEN_DEPENDENCY_ORDER}')"
   yetus_add_option "--mvn-settings=file" "File to use for settings.xml"
+  yetus_add_option "--mvn-args=args" "Extra mvn argument to add to all build."
 }
 
 function maven_parse_args
@@ -75,6 +76,9 @@ function maven_parse_args
       ;;
       --mvn-deps-order=*)
         MAVEN_DEPENDENCY_ORDER=${i#*=}
+      ;;
+		--mvn-args=*)
+		  MAVEN_ARGS=("${MAVEN_ARGS[@]}" "${i#*=}")
       ;;
       --mvn-settings=*)
         MAVEN_SETTINGS=${i#*=}
