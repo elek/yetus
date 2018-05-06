@@ -78,7 +78,8 @@ function maven_parse_args
         MAVEN_DEPENDENCY_ORDER=${i#*=}
       ;;
 		--mvn-args=*)
-		  MAVEN_ARGS=("${MAVEN_ARGS[@]}" "${i#*=}")
+		  ARGS_ARRAY=("${i#*=}")
+		  MAVEN_ARGS=("${MAVEN_ARGS[@]}" "${ARGS_ARRAY[@]}")
       ;;
       --mvn-settings=*)
         MAVEN_SETTINGS=${i#*=}
