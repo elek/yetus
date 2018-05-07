@@ -79,11 +79,7 @@ function maven_parse_args
       ;;
 		--mvn-args=*)
 		  ARGS_ARRAY=(${i#*=})
-
-		  echo ${ARGS_ARRAY[@]}
-		  echo ${#ARGS_ARRAY[@]}
 		  MAVEN_ARGS=("${MAVEN_ARGS[@]}" "${ARGS_ARRAY[@]}")
-		  echo ${MAVEN_ARGS[@]}
       ;;
       --mvn-settings=*)
         MAVEN_SETTINGS=${i#*=}
