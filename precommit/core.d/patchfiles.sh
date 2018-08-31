@@ -85,7 +85,7 @@ function locate_patch
   declare bugsys
   declare patchfile=""
   declare gotit=false
-
+set -x
   yetus_debug "locate patch"
 
   if [[ -z "${PATCH_OR_ISSUE}" ]]; then
@@ -128,7 +128,7 @@ function locate_patch
   fi
 
   yetus_debug "Determined patch system to be ${PATCH_SYSTEM}"
-
+set +x
   if [[ ! -f "${PATCH_DIR}/patch"
       && -f "${patchfile}" ]]; then
     cp "${patchfile}" "${PATCH_DIR}/patch"
